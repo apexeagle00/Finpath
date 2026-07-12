@@ -328,7 +328,7 @@ export const tradingAccountsModule: Module = {
         ]},
         { type: 'callout', variant: 'exam', text: 'DISTINGUISHING FRONT-RUNNING vs. INSIDER TRADING:\nFront-running: Using CUSTOMER ORDER FLOW information to trade for your own account ahead of the customer. The information is about pending orders, not corporate secrets.\nInsider trading: Using MATERIAL NONPUBLIC INFORMATION about the issuer (company) to trade. Could be from anyone with access to such information.\n\nBoth are illegal. Both involve trading on non-public information. But the SOURCE of the information is different.' }
       ]
-    }
+    },
     {
       id: 'key-calculations',
       title: 'Essential SIE Calculations: Every Formula You Must Know',
