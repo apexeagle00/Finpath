@@ -15,6 +15,7 @@ export interface QuizQuestion {
   options: string[]
   correctIndex: number
   explanation: string
+  domain?: string
 }
 
 export interface Lesson {

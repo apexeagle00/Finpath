@@ -4,25 +4,25 @@ import { allCourses } from '@/lib/courses'
 export default function Home() {
   const features = [
     {
-      icon: '🎯',
+      icon: '◎',
       title: 'Mastery-Gated Learning',
-      description: 'You cannot advance to the next module until you score 80% or higher on the quiz. No skipping, no shortcuts. Real mastery only.',
+      description: 'You cannot advance until you score 80%+ on the quiz. No skipping. No shortcuts. Real mastery only.',
     },
     {
-      icon: '📚',
+      icon: '▤',
       title: 'Exam-Quality Content',
-      description: 'Every lesson is written to match the depth and rigor of real finance exams. SIE prep, fundamentals, and beyond — all built to produce results.',
+      description: 'Every lesson matches the depth and rigor of real finance exams. Written to produce results — not just familiarity.',
     },
     {
-      icon: '🤖',
+      icon: '◈',
       title: 'AI Tutor',
-      description: 'Stuck on a concept? Your AI tutor is available inside every course to explain anything in plain language. Coming soon.',
+      description: 'Stuck on a concept? Your AI tutor explains anything in plain language inside every course.',
       comingSoon: true,
     },
     {
-      icon: '💼',
+      icon: '◧',
       title: 'Mock Interviews',
-      description: 'Simulate real finance interviews with AI-powered behavioral and technical questions. Get scored feedback on every answer. Coming soon.',
+      description: 'Simulate real finance interviews. AI-powered behavioral and technical questions with scored feedback.',
       comingSoon: true,
     },
   ]
@@ -37,161 +37,175 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section style={{
-        padding: '100px 24px 80px',
-        maxWidth: '1200px',
-        margin: '0 auto',
-        textAlign: 'center',
-      }}>
-        {/* Eyebrow */}
+      <section style={{ position: 'relative', overflow: 'hidden' }}>
+        {/* Dot grid background */}
+        <div
+          className="hero-pattern"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            maskImage: 'radial-gradient(ellipse 80% 80% at 50% 0%, black 40%, transparent 100%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 0%, black 40%, transparent 100%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Radial glow */}
         <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
-          background: 'rgba(212, 175, 55, 0.08)',
-          border: '1px solid rgba(212, 175, 55, 0.2)',
-          borderRadius: '999px',
-          padding: '6px 16px',
-          marginBottom: '32px',
-        }}>
-          <span style={{ fontSize: '0.75rem', color: '#d4af37', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            Finance Education. Reimagined.
-          </span>
-        </div>
+          position: 'absolute',
+          top: '-120px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '600px',
+          height: '400px',
+          background: 'radial-gradient(ellipse at center, rgba(212, 175, 55, 0.06) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
 
-        {/* Headline */}
-        <h1 style={{
-          fontSize: 'clamp(3rem, 7vw, 5.5rem)',
-          fontWeight: '800',
-          lineHeight: '1.05',
-          margin: '0 0 24px',
-          letterSpacing: '-0.02em',
+        <div style={{
+          position: 'relative',
+          padding: '104px 24px 88px',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          textAlign: 'center',
         }}>
-          Master Finance.{' '}
-          <span className="text-gold-gradient">Prove It.</span>
-        </h1>
+          {/* Eyebrow */}
+          <div style={{ marginBottom: '28px' }}>
+            <span className="eyebrow">Finance Education. Reimagined.</span>
+          </div>
 
-        {/* Subheadline */}
-        <p style={{
-          fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-          color: '#7a9cc0',
-          maxWidth: '620px',
-          margin: '0 auto 48px',
-          lineHeight: '1.6',
-        }}>
-          Mastery-gated courses built for serious students. You don&apos;t move forward until you actually know it. SIE prep, finance fundamentals, and more.
-        </p>
+          {/* Headline */}
+          <h1 style={{
+            fontSize: 'clamp(2.8rem, 7vw, 5.2rem)',
+            fontWeight: '900',
+            lineHeight: '1.04',
+            margin: '0 0 22px',
+            letterSpacing: '-0.03em',
+            color: '#e8f0fe',
+          }}>
+            Master Finance.<br />
+            <span className="text-gold-gradient">Prove It.</span>
+          </h1>
 
-        {/* CTAs */}
-        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link href="/courses">
-            <button className="btn-primary" style={{ fontSize: '1rem', padding: '14px 32px' }}>
-              Browse Courses →
-            </button>
-          </Link>
-          <Link href="#how-it-works">
-            <button className="btn-secondary" style={{ fontSize: '1rem', padding: '14px 32px' }}>
-              How It Works
-            </button>
-          </Link>
+          {/* Subheadline */}
+          <p style={{
+            fontSize: 'clamp(1rem, 2.2vw, 1.2rem)',
+            color: '#7a9cc0',
+            maxWidth: '580px',
+            margin: '0 auto 44px',
+            lineHeight: '1.65',
+            fontWeight: '400',
+          }}>
+            Mastery-gated courses built for serious students. You don&apos;t move forward until you actually know it. SIE prep, finance fundamentals, and more — all free.
+          </p>
+
+          {/* CTAs */}
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/courses" style={{ textDecoration: 'none' }}>
+              <button className="btn-primary" style={{ fontSize: '0.95rem', padding: '13px 30px' }}>
+                Browse Courses →
+              </button>
+            </Link>
+            <Link href="#how-it-works" style={{ textDecoration: 'none' }}>
+              <button className="btn-secondary" style={{ fontSize: '0.95rem', padding: '13px 30px' }}>
+                How It Works
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Stats Bar */}
       <section style={{
-        borderTop: '1px solid rgba(212, 175, 55, 0.1)',
-        borderBottom: '1px solid rgba(212, 175, 55, 0.1)',
-        padding: '32px 24px',
+        borderTop: '1px solid rgba(212, 175, 55, 0.08)',
+        borderBottom: '1px solid rgba(212, 175, 55, 0.08)',
+        padding: '36px 24px',
+        background: 'rgba(7, 20, 40, 0.3)',
       }}>
         <div style={{
-          maxWidth: '1200px',
+          maxWidth: '900px',
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '24px',
           textAlign: 'center',
         }}>
           {stats.map(({ value, label }) => (
-            <div key={label}>
-              <div style={{
-                fontSize: '2rem',
-                fontWeight: '800',
-                background: 'linear-gradient(135deg, #d4af37, #f0d060)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}>{value}</div>
-              <div style={{ color: '#7a9cc0', fontSize: '0.85rem', marginTop: '4px' }}>{label}</div>
+            <div key={label} style={{ padding: '8px 0' }}>
+              <div className="stat-value">{value}</div>
+              <div className="stat-label">{label}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" style={{ padding: '80px 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: '700', margin: '0 0 16px', letterSpacing: '-0.01em' }}>
-            How FinPath Works
-          </h2>
-          <p style={{ color: '#7a9cc0', fontSize: '1rem', maxWidth: '500px', margin: '0 auto' }}>
-            No shortcuts. No guessing your way through. This is how real mastery is built.
-          </p>
-        </div>
+      <section id="how-it-works" className="section">
+        <div className="container">
+          <div className="section-header">
+            <h2>How FinPath Works</h2>
+            <p>No shortcuts. No guessing your way through. This is how real mastery is built.</p>
+          </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px' }}>
-          {[
-            { step: '01', title: 'Choose a Course', description: 'Pick from SIE prep, finance fundamentals, or other available tracks.' },
-            { step: '02', title: 'Study the Lesson', description: 'Read through structured, exam-quality content covering every concept you need.' },
-            { step: '03', title: 'Take the Quiz', description: 'Prove you\'ve mastered the material. Must score 80%+ to advance to the next module.' },
-            { step: '04', title: 'Unlock & Advance', description: 'Complete every module to finish the course. Track your progress along the way.' },
-          ].map(({ step, title, description }) => (
-            <div key={step} className="card" style={{ padding: '28px' }}>
-              <div style={{
-                fontSize: '0.75rem',
-                fontWeight: '700',
-                color: '#d4af37',
-                letterSpacing: '0.1em',
-                marginBottom: '12px',
-              }}>STEP {step}</div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: '700', margin: '0 0 10px' }}>{title}</h3>
-              <p style={{ color: '#7a9cc0', fontSize: '0.9rem', margin: 0, lineHeight: '1.6' }}>{description}</p>
-            </div>
-          ))}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '20px',
+          }}>
+            {[
+              { step: '01', title: 'Choose a Course', description: 'Pick from SIE prep, finance fundamentals, or other available tracks.' },
+              { step: '02', title: 'Study the Lesson', description: 'Read through structured, exam-quality content covering every concept you need.' },
+              { step: '03', title: 'Take the Quiz', description: 'Prove mastery. Score 80%+ to advance. No exceptions.' },
+              { step: '04', title: 'Unlock & Advance', description: 'Complete every module to finish the course. Track progress along the way.' },
+            ].map(({ step, title, description }) => (
+              <div key={step} className="card" style={{ padding: '28px 26px' }}>
+                <div className="step-number">Step {step}</div>
+                <h3 style={{ fontSize: '1rem', fontWeight: '700', margin: '0 0 10px', color: '#e8f0fe' }}>{title}</h3>
+                <p style={{ color: '#7a9cc0', fontSize: '0.875rem', margin: 0, lineHeight: '1.65' }}>{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Features */}
       <section style={{
         padding: '80px 24px',
-        background: 'rgba(7, 20, 40, 0.5)',
-        borderTop: '1px solid rgba(212, 175, 55, 0.08)',
-        borderBottom: '1px solid rgba(212, 175, 55, 0.08)',
+        background: 'rgba(7, 20, 40, 0.4)',
+        borderTop: '1px solid rgba(212, 175, 55, 0.07)',
+        borderBottom: '1px solid rgba(212, 175, 55, 0.07)',
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: '700', margin: '0 0 16px', letterSpacing: '-0.01em' }}>
-              Built Different
-            </h2>
-            <p style={{ color: '#7a9cc0', maxWidth: '480px', margin: '0 auto' }}>
-              Not another video course you&apos;ll forget. Not another flashcard app. FinPath is built for proven mastery.
-            </p>
+        <div className="container">
+          <div className="section-header">
+            <h2>Built Different</h2>
+            <p>Not another video course you&apos;ll forget. Not another flashcard app. FinPath is built for proven mastery.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '20px',
+          }}>
             {features.map(({ icon, title, description, comingSoon }) => (
-              <div key={title} className="card" style={{ padding: '32px', position: 'relative' }}>
-                {comingSoon && (
-                  <span className="badge" style={{
-                    position: 'absolute',
-                    top: '20px',
-                    right: '20px',
-                    background: 'rgba(212, 175, 55, 0.1)',
-                    color: '#d4af37',
-                    border: '1px solid rgba(212, 175, 55, 0.3)',
-                  }}>Soon</span>
-                )}
-                <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>{icon}</div>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: '700', margin: '0 0 10px' }}>{title}</h3>
-                <p style={{ color: '#7a9cc0', fontSize: '0.9rem', margin: 0, lineHeight: '1.7' }}>{description}</p>
+              <div key={title} className="card-gradient-border" style={{ padding: '1px', borderRadius: '12px' }}>
+                <div className="card-inner" style={{
+                  background: 'var(--bg-card)',
+                  borderRadius: '11px',
+                  padding: '28px',
+                  height: '100%',
+                  position: 'relative',
+                }}>
+                  {comingSoon && (
+                    <span className="badge badge-gold" style={{ position: 'absolute', top: '20px', right: '20px' }}>
+                      Soon
+                    </span>
+                  )}
+                  <div className="feature-icon" style={{ fontSize: '1.1rem', fontWeight: '700', color: '#d4af37' }}>
+                    {icon}
+                  </div>
+                  <h3 style={{ fontSize: '1rem', fontWeight: '700', margin: '0 0 10px', color: '#e8f0fe' }}>{title}</h3>
+                  <p style={{ color: '#7a9cc0', fontSize: '0.875rem', margin: 0, lineHeight: '1.7' }}>{description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -199,91 +213,123 @@ export default function Home() {
       </section>
 
       {/* Course Preview */}
-      <section style={{ padding: '80px 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: '700', margin: '0 0 16px', letterSpacing: '-0.01em' }}>
-            Start Learning Today
-          </h2>
-          <p style={{ color: '#7a9cc0', maxWidth: '480px', margin: '0 auto' }}>
-            Every course is free. No account required to browse. Start where you are.
-          </p>
-        </div>
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Start Learning Today</h2>
+            <p>Every course is free. No account required to browse. Start where you are.</p>
+          </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
-          {allCourses.map((course) => (
-            <Link key={course.id} href={`/courses/${course.slug}`} style={{ textDecoration: 'none' }}>
-              <div className="card" style={{ padding: '32px', height: '100%', cursor: 'pointer' }}>
-                {/* Icon & Category */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-                  <span style={{ fontSize: '2.5rem' }}>{course.icon}</span>
-                  <span className="badge" style={{
-                    background: course.category === 'certification'
-                      ? 'rgba(212, 175, 55, 0.1)'
-                      : 'rgba(59, 130, 246, 0.1)',
-                    color: course.category === 'certification' ? '#d4af37' : '#60a5fa',
-                    border: `1px solid ${course.category === 'certification' ? 'rgba(212, 175, 55, 0.3)' : 'rgba(59, 130, 246, 0.3)'}`,
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '20px',
+            marginBottom: '36px',
+          }}>
+            {allCourses.map((course) => (
+              <Link key={course.id} href={`/courses/${course.slug}`} style={{ textDecoration: 'none' }}>
+                <div className="card-gradient-border" style={{ padding: '1px', borderRadius: '12px', height: '100%', cursor: 'pointer' }}>
+                  <div className="card-inner" style={{
+                    background: 'var(--bg-card)',
+                    borderRadius: '11px',
+                    padding: '28px',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
                   }}>
-                    {course.category === 'certification' ? 'Certification' : 'Fundamentals'}
-                  </span>
-                </div>
+                    {/* Icon & Category */}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '18px' }}>
+                      <span style={{ fontSize: '2rem' }}>{course.icon}</span>
+                      <span className={`badge ${course.category === 'certification' ? 'badge-gold' : 'badge-blue'}`}>
+                        {course.category === 'certification' ? 'Certification' : 'Fundamentals'}
+                      </span>
+                    </div>
 
-                <h3 style={{ fontSize: '1.2rem', fontWeight: '700', margin: '0 0 6px' }}>{course.title}</h3>
-                <p style={{ color: '#d4af37', fontSize: '0.85rem', margin: '0 0 12px', fontWeight: '500' }}>{course.subtitle}</p>
-                <p style={{ color: '#7a9cc0', fontSize: '0.88rem', lineHeight: '1.6', margin: '0 0 24px' }}>
-                  {course.description.substring(0, 120)}...
-                </p>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: '700', margin: '0 0 5px', color: '#e8f0fe' }}>{course.title}</h3>
+                    <p style={{ color: '#d4af37', fontSize: '0.8rem', margin: '0 0 12px', fontWeight: '600', letterSpacing: '0.01em' }}>{course.subtitle}</p>
+                    <p style={{ color: '#7a9cc0', fontSize: '0.85rem', lineHeight: '1.65', margin: '0 0 auto', flexGrow: 1 }}>
+                      {course.description.substring(0, 115)}...
+                    </p>
 
-                {/* Metadata */}
-                <div style={{ display: 'flex', gap: '20px', borderTop: '1px solid rgba(212, 175, 55, 0.1)', paddingTop: '20px' }}>
-                  <div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: '700', color: '#e8f0fe' }}>{course.modules.length}</div>
-                    <div style={{ fontSize: '0.75rem', color: '#4a6a90' }}>Modules</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: '700', color: '#e8f0fe' }}>{course.estimatedHours}h</div>
-                    <div style={{ fontSize: '0.75rem', color: '#4a6a90' }}>Est. Time</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: '700', color: '#e8f0fe' }}>{course.level}</div>
-                    <div style={{ fontSize: '0.75rem', color: '#4a6a90' }}>Level</div>
+                    {/* Metadata */}
+                    <div style={{
+                      display: 'flex',
+                      gap: '24px',
+                      borderTop: '1px solid rgba(255,255,255,0.05)',
+                      paddingTop: '18px',
+                      marginTop: '20px',
+                    }}>
+                      <div>
+                        <div style={{ fontSize: '1rem', fontWeight: '700', color: '#e8f0fe' }}>{course.modules.length}</div>
+                        <div style={{ fontSize: '0.72rem', color: '#4a6a90', marginTop: '2px', fontWeight: '500' }}>Modules</div>
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '1rem', fontWeight: '700', color: '#e8f0fe' }}>{course.estimatedHours}h</div>
+                        <div style={{ fontSize: '0.72rem', color: '#4a6a90', marginTop: '2px', fontWeight: '500' }}>Est. Time</div>
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '1rem', fontWeight: '700', color: '#e8f0fe' }}>{course.level}</div>
+                        <div style={{ fontSize: '0.72rem', color: '#4a6a90', marginTop: '2px', fontWeight: '500' }}>Level</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <Link href="/courses" style={{ textDecoration: 'none' }}>
+              <button className="btn-secondary" style={{ fontSize: '0.9rem' }}>
+                View All Courses →
+              </button>
             </Link>
-          ))}
-        </div>
-
-        <div style={{ textAlign: 'center' }}>
-          <Link href="/courses">
-            <button className="btn-secondary" style={{ fontSize: '0.95rem' }}>
-              View All Courses →
-            </button>
-          </Link>
+          </div>
         </div>
       </section>
 
       {/* CTA Banner */}
-      <section style={{ padding: '80px 24px' }}>
+      <section style={{ padding: '64px 24px 88px' }}>
         <div style={{
-          maxWidth: '700px',
+          maxWidth: '680px',
           margin: '0 auto',
           textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(212, 175, 55, 0.02) 100%)',
-          border: '1px solid rgba(212, 175, 55, 0.2)',
+          position: 'relative',
+          background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(10, 29, 54, 0.6) 50%, rgba(212, 175, 55, 0.03) 100%)',
+          border: '1px solid rgba(212, 175, 55, 0.16)',
           borderRadius: '20px',
-          padding: '64px 40px',
+          padding: '60px 40px',
+          overflow: 'hidden',
         }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: '800', margin: '0 0 16px', letterSpacing: '-0.01em' }}>
-            Ready to level up?
-          </h2>
-          <p style={{ color: '#7a9cc0', fontSize: '1rem', margin: '0 0 32px', lineHeight: '1.6' }}>
-            The gap between where you are and where you want to be is just knowledge. Start closing it today.
-          </p>
-          <Link href="/courses">
-            <button className="btn-primary" style={{ fontSize: '1rem', padding: '14px 36px' }}>
-              Start for Free →
-            </button>
-          </Link>
+          {/* Background dot grid */}
+          <div
+            className="hero-pattern-subtle"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '20px',
+              pointerEvents: 'none',
+            }}
+          />
+          <div style={{ position: 'relative' }}>
+            <h2 style={{
+              fontSize: 'clamp(1.7rem, 4vw, 2.3rem)',
+              fontWeight: '800',
+              margin: '0 0 14px',
+              letterSpacing: '-0.02em',
+              color: '#e8f0fe',
+            }}>
+              Ready to level up?
+            </h2>
+            <p style={{ color: '#7a9cc0', fontSize: '1rem', margin: '0 0 28px', lineHeight: '1.65' }}>
+              The gap between where you are and where you want to be is just knowledge. Start closing it today.
+            </p>
+            <Link href="/courses" style={{ textDecoration: 'none' }}>
+              <button className="btn-primary" style={{ fontSize: '0.95rem', padding: '13px 32px' }}>
+                Start for Free →
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

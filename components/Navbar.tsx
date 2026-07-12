@@ -13,9 +13,10 @@ export default function Navbar() {
       left: 0,
       right: 0,
       zIndex: 100,
-      background: 'rgba(4, 13, 28, 0.85)',
-      backdropFilter: 'blur(12px)',
-      borderBottom: '1px solid rgba(212, 175, 55, 0.1)',
+      background: 'rgba(4, 13, 28, 0.88)',
+      backdropFilter: 'blur(16px)',
+      WebkitBackdropFilter: 'blur(16px)',
+      borderBottom: '1px solid rgba(212, 175, 55, 0.08)',
     }}>
       <div style={{
         maxWidth: '1200px',
@@ -27,43 +28,39 @@ export default function Navbar() {
         justifyContent: 'space-between',
       }}>
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '9px' }}>
           <div style={{
-            width: '32px',
-            height: '32px',
-            background: 'linear-gradient(135deg, #d4af37, #f0d060)',
-            borderRadius: '8px',
+            width: '30px',
+            height: '30px',
+            background: 'linear-gradient(135deg, #d4af37 0%, #c09b20 100%)',
+            borderRadius: '7px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '18px',
-            fontWeight: '800',
-            color: '#0a0f1a',
+            fontSize: '14px',
+            fontWeight: '900',
+            color: '#060e1a',
+            letterSpacing: '-0.02em',
+            flexShrink: 0,
           }}>F</div>
           <span style={{
-            fontSize: '1.2rem',
+            fontSize: '1.05rem',
             fontWeight: '700',
-            background: 'linear-gradient(135deg, #d4af37, #f0d060)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
+            color: '#e8f0fe',
+            letterSpacing: '-0.01em',
           }}>FinPath</span>
         </Link>
 
         {/* Nav Links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           {[
             { href: '/courses', label: 'Courses' },
           ].map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              style={{
-                textDecoration: 'none',
-                color: pathname.startsWith(href) ? '#d4af37' : '#7a9cc0',
-                fontWeight: pathname.startsWith(href) ? '600' : '400',
-                fontSize: '0.9rem',
-                transition: 'color 0.2s',
-              }}
+              className={`nav-link${pathname.startsWith(href) ? ' active' : ''}`}
+              style={{ padding: '6px 12px', borderRadius: '6px' }}
             >
               {label}
             </Link>
@@ -71,8 +68,8 @@ export default function Navbar() {
         </div>
 
         {/* CTA */}
-        <Link href="/courses">
-          <button className="btn-primary" style={{ padding: '8px 20px', fontSize: '0.85rem' }}>
+        <Link href="/courses" style={{ textDecoration: 'none' }}>
+          <button className="btn-primary" style={{ padding: '7px 18px', fontSize: '0.82rem' }}>
             Start Learning
           </button>
         </Link>

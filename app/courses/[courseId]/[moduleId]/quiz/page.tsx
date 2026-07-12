@@ -17,6 +17,9 @@ export default function QuizPage({ params }: { params: Promise<{ courseId: strin
   const module = course.modules[moduleIndex]
   const nextModule = course.modules[moduleIndex + 1]
 
+  // Practice exam gets timer + navigation
+  const isPracticeExam = module.id === 'practice-exam'
+
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 24px' }}>
       {/* Breadcrumb */}
@@ -25,9 +28,13 @@ export default function QuizPage({ params }: { params: Promise<{ courseId: strin
         <span style={{ color: '#4a6a90' }}>›</span>
         <Link href={`/courses/${courseId}`} style={{ color: '#4a6a90', textDecoration: 'none' }}>{course.title}</Link>
         <span style={{ color: '#4a6a90' }}>›</span>
-        <Link href={`/courses/${courseId}/${moduleId}`} style={{ color: '#4a6a90', textDecoration: 'none' }}>{module.title}</Link>
-        <span style={{ color: '#4a6a90' }}>›</span>
-        <span style={{ color: '#7a9cc0' }}>Quiz</span>
+        {module.lessons.length > 0 && (
+          <>
+            <Link href={`/courses/${courseId}/${moduleId}`} style={{ color: '#4a6a90', textDecoration: 'none' }}>{module.title}</Link>
+            <span style={{ color: '#4a6a90' }}>›</span>
+          </>
+        )}
+        <span style={{ color: '#7a9cc0' }}>{isPracticeExam ? 'Practice Exam' : 'Quiz'}</span>
       </div>
 
       {/* Quiz Card */}
@@ -45,6 +52,8 @@ export default function QuizPage({ params }: { params: Promise<{ courseId: strin
           nextModuleId={nextModule?.id}
           courseTitle={course.title}
           moduleTitle={module.title}
+          timerSeconds={isPracticeExam ? 6300 : undefined}
+          allowNavigation={isPracticeExam}
         />
       </div>
     </div>
